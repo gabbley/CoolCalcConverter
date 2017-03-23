@@ -29,6 +29,7 @@ public class MainScreen extends AppCompatActivity {
         setContentView(R.layout.activity_main_screen);
     }
 
+    //creates buttons
     public void createButtons(){
 
         Button one = (Button) findViewById(R.id.btnOne);
