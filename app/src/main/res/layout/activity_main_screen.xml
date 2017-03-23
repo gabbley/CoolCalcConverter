@@ -121,4 +121,41 @@
         </GridLayout>
     </LinearLayout>
 
+    <RadioGroup
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:layout_editor_absoluteX="249dp"
+        tools:layout_editor_absoluteY="274dp">
+
+        <RadioButton
+            android:id="@+id/rbnDec"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Decimal" />
+
+        <RadioButton
+            android:id="@+id/rbnHex"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Hex" />
+
+        <RadioButton
+            android:id="@+id/rbnBinary"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Binary" />
+
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/btnClear"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Clear"
+        tools:layout_editor_absoluteX="47dp"
+        tools:layout_editor_absoluteY="256dp" />
+
 </android.support.constraint.ConstraintLayout>

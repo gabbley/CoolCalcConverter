@@ -3,6 +3,7 @@ package com.gabbley.coolcalcconverter;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.Button;
+import android.widget.RadioButton;
 
 import java.util.ArrayList;
 
@@ -27,10 +28,11 @@ public class MainScreen extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_screen);
+        createObjects();
     }
 
     //creates buttons
-    public void createButtons(){
+    public void creatObjects(){
 
         Button one = (Button) findViewById(R.id.btnOne);
         Button two = (Button) findViewById(R.id.btnTwo);
@@ -42,7 +44,11 @@ public class MainScreen extends AppCompatActivity {
         Button eight = (Button) findViewById(R.id.btnEight);
         Button nine = (Button) findViewById(R.id.btnNine);
         Button zero = (Button) findViewById(R.id.btnZero);
+        Button reset = (Button) findViewById(R.id.btnClear);
+     //   RadioButton dec (Rad)
     }
+
+
 
     ///////////Decimal//Conversions/////////////////////////
     static public String decToBin(String n){
