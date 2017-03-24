@@ -35,14 +35,33 @@ public class MainScreen extends AppCompatActivity {
        display = (TextView) findViewById(R.id.txtNumbers);
     }
 
-    //identifies which button is clicked
-    public void whichButtonClicked(View view) {
+    //identifies which number to display
+    public String numButtonClicked(View view) {
         switch (view.getId()) {
-            case R.id.btnOne : display.setText("1");
-                break;
-            //case R
-
+            case R.id.btnOne : return "1";
+            case R.id.btnTwo : return "2";
+            case R.id.btnThree : return "3";
+            case R.id.btnFour : return "4";
+            case R.id.btnFive : return "5";
+            case R.id.btnSix : return "6";
+            case R.id.btnSeven : return "7";
+            case R.id.btnEight : return "8";
+            case R.id.btnNine : return "9";
+            case R.id.btnZero : return "0";
+            default : return "err";
         }
+    }
+
+    //overrides setText method, String parameter instead of char[]
+    public char[] setText(String s){
+        char[] c = new char[s.length()];
+
+        for (int i = 0; i<s.length(); i++){
+            c[i] = s.charAt(i);
+        }
+
+        return c;
+
     }
 
 
