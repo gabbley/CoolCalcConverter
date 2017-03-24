@@ -9,7 +9,7 @@ import java.util.ArrayList;
 
 public class MainScreen extends AppCompatActivity {
 
-    //
+    //array list
     static ArrayList<String> stringList = new ArrayList<>();
 
 
