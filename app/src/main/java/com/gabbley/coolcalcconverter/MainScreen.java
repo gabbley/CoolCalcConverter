@@ -2,8 +2,10 @@ package com.gabbley.coolcalcconverter;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.RadioButton;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
@@ -23,13 +25,26 @@ public class MainScreen extends AppCompatActivity {
     static String addedNumber = "";
     static int check = 0;
     static String hexNumber1 = "";
+    public static TextView display;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_screen);
-        createObjects();
+        //createObjects();
+       display = (TextView) findViewById(R.id.txtNumbers);
     }
+
+    //identifies which button is clicked
+    public void whichButtonClicked(View view) {
+        switch (view.getId()) {
+            case R.id.btnOne : display.setText("1");
+                break;
+            //case R
+
+        }
+    }
+
 
     //creates buttons
     public void creatObjects(){

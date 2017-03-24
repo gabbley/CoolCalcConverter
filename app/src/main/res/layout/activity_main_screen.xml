@@ -121,11 +121,19 @@
         </GridLayout>
     </LinearLayout>
 
+    <Button
+        android:id="@+id/btnClear"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Clear"
+        tools:layout_editor_absoluteX="52dp"
+        tools:layout_editor_absoluteY="254dp" />
+
     <RadioGroup
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         tools:layout_editor_absoluteX="249dp"
-        tools:layout_editor_absoluteY="274dp">
+        tools:layout_editor_absoluteY="271dp">
 
         <RadioButton
             android:id="@+id/rbnDec"
@@ -149,13 +157,5 @@
             android:text="Binary" />
 
     </RadioGroup>
-
-    <Button
-        android:id="@+id/btnClear"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Clear"
-        tools:layout_editor_absoluteX="47dp"
-        tools:layout_editor_absoluteY="256dp" />
 
 </android.support.constraint.ConstraintLayout>
