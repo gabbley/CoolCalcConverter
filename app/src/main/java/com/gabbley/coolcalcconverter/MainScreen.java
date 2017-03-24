@@ -26,6 +26,7 @@ public class MainScreen extends AppCompatActivity {
     static int check = 0;
     static String hexNumber1 = "";
     public static TextView display;
+    public static String displayNum = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,21 +36,31 @@ public class MainScreen extends AppCompatActivity {
        display = (TextView) findViewById(R.id.txtNumbers);
     }
 
+
+
     //identifies which number to display
-    public String numButtonClicked(View view) {
+    public void numButtonClicked(View view) {
         switch (view.getId()) {
-            case R.id.btnOne : return "1";
-            case R.id.btnTwo : return "2";
-            case R.id.btnThree : return "3";
-            case R.id.btnFour : return "4";
-            case R.id.btnFive : return "5";
-            case R.id.btnSix : return "6";
-            case R.id.btnSeven : return "7";
-            case R.id.btnEight : return "8";
-            case R.id.btnNine : return "9";
-            case R.id.btnZero : return "0";
-            default : return "err";
+            case R.id.btnOne : displayNum = ("1"); break;
+            case R.id.btnTwo : displayNum =("2"); break;
+            case R.id.btnThree : displayNum =("3"); break;
+            case R.id.btnFour : displayNum =("4");break;
+            case R.id.btnFive : displayNum =("5"); break;
+            case R.id.btnSix : displayNum =("6"); break;
+            case R.id.btnSeven : displayNum =("7"); break;
+            case R.id.btnEight : displayNum =("8"); break;
+            case R.id.btnNine : displayNum =("9");break;
+            case R.id.btnZero : displayNum =("0"); break;
+            default : displayNum = ("error");
         }
+
+        displayNums();
+    }
+
+    //adds number onto current text
+    public void displayNums(){
+        String current = display.getText().toString();
+        display.setText(current +displayNum);
     }
 
     //overrides setText method, String parameter instead of char[]
