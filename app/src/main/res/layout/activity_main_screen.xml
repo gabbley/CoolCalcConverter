@@ -135,6 +135,7 @@
         android:id="@+id/btnClear"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:onClick="clearScreen"
         android:text="Clear"
         tools:layout_editor_absoluteX="52dp"
         tools:layout_editor_absoluteY="254dp" />
@@ -150,14 +151,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:onClick="mainConverter"
             android:text="Decimal" />
-
-        <RadioButton
-            android:id="@+id/rbnHex"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Hex" />
 
         <RadioButton
             android:id="@+id/rbnBinary"
