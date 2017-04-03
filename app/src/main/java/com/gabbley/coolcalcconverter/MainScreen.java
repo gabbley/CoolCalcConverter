@@ -17,35 +17,47 @@ public class MainScreen extends AppCompatActivity {
 
     static int decNum;
     static int binNum;
-    static int rem;
-    static String newNumber = "";
-    static String returnedNum = "";
-    static String addedNumber = "";
-    static int check = 0;
     public static TextView display;
     public static String displayNum = "";
-    public static RadioButton dec, bin;
     public static Button one, two, three, four, five, six, seven, eight, nine, zero, clear;
+    public static boolean binary, decimal;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_screen);
-        //createObjects();
+        createObjects();
        display = (TextView) findViewById(R.id.txtNumbers);
     }
 
     public void mainConverter(View view){
-        String fromScreen = "";
-        String converted = "";
 
-        if (bin.isChecked()){
-            fromScreen = display.getText().toString();
+        if ((display.length() < 0) || (display.getText().toString().equals(""))){
+                display.setText("You need to enter a value");
+        }
+        else if ((view.getId() == R.id.btnDecimal) && (binary)){
+            display.setText(binToDec(display.getText().toString()));
+            decimal = true;
+            binary = false;
 
-            display.setText(converted);
+        }
+        else if ((view.getId() == R.id.btnBinary) && (decimal) ){
+            display.setText(decToBin(display.getText().toString()));
+            binary = true;
+            decimal = false;
         }
 
     }
+
+    public boolean overflowCheck(String s){
+        if (Integer.parseInt(s) > 256)
+            return true;
+        else
+            return false;
+
+    }
+
+
 
 
 
@@ -92,7 +104,7 @@ public class MainScreen extends AppCompatActivity {
 
 
     //creates buttons
-    public void creatObjects() {
+    public void createObjects() {
 
         one = (Button) findViewById(R.id.btnOne);
         two = (Button) findViewById(R.id.btnTwo);
@@ -105,39 +117,52 @@ public class MainScreen extends AppCompatActivity {
         nine = (Button) findViewById(R.id.btnNine);
         zero = (Button) findViewById(R.id.btnZero);
         clear = (Button) findViewById(R.id.btnClear);
-        dec = (RadioButton) findViewById(R.id.rbnDec);
-        bin = (RadioButton) findViewById(R.id.rbnBinary);
+
+        decimal = true;
+
     }
 
 
     ///////////Decimal//Conversions/////////////////////////
-    static public String decToBin(String n){
+    public String decToBin(String n){
         String num = "";
-        decNum = Integer.parseInt(n);
-        while(decNum!=0){
-            num = (decNum%2) + num;
-            decNum/=2;
+        if (overflowCheck(n)){
+            display.setHint("The number is too large, please reenter a number");
         }
+        else {
+
+            decNum = Integer.parseInt(n);
+            while (decNum != 0) {
+                num = (decNum % 2) + num;
+                decNum /= 2;
+            }
+
+            }
         return num;
     }
 
 
     //////////////////////////////////////////
-    static public String binToDec(String n){
+    public String binToDec(String n){
         String num = "";
-        decNum=0;
-        int i = 0;
-        binNum = Integer.parseInt(n);
+        if (overflowCheck(n)){
+            display.setHint("The number is too large, please reenter a number");
+        }
+        else {
 
-        while(true){
-            if(binNum == 0){
-                break;
-            }
-            else {
-                int temp = binNum%10;
-                decNum += temp*Math.pow(2, i);
-                binNum = binNum/10;
-                i++;
+            decNum = 0;
+            int i = 0;
+            binNum = Integer.parseInt(n);
+
+            while (true) {
+                if (binNum == 0) {
+                    break;
+                } else {
+                    int temp = binNum % 10;
+                    decNum += temp * Math.pow(2, i);
+                    binNum = binNum / 10;
+                    i++;
+                }
             }
         }
         num = String.valueOf(decNum);
